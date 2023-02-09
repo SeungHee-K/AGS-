@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Gun : MonoBehaviour
-{
-       
+{       
     
     public string gunName; //총이름
     public float range; //사정거리
