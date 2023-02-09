@@ -48,8 +48,7 @@ public class UI_Manager : MonoBehaviour
     // 스크립트
     public GameManager gameManager;
     public Datamanager data;
-    public MosterSpawner MosterSpawner;
-    
+    public MosterSpawner MosterSpawner;    
 
     private void Awake() // 게임 시작 시 카운트다운패널 ON
     {
