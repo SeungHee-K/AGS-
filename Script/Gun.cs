@@ -4,33 +4,30 @@ using UnityEngine;
 
 public class Gun : MonoBehaviour
 {
-   
-
+       
     
+    public string gunName; //ì´ì´ë¦„
+    public float range; //ì‚¬ì •ê±°ë¦¬
     
-    public string gunName; //ÃÑÀÌ¸§
-    public float range; //»çÁ¤°Å¸®
-    
-    public float fireRate;//¿¬»ç¼Óµµ
-    public float reloadTime;//ÀçÀåÀü ¼Óµµ
+    public float fireRate;//ì—°ì‚¬ì†ë„
+    public float reloadTime;//ì¬ì¥ì „ ì†ë„
 
-    public int damage;//ÃÑÀÇ µ¥¹ÌÁö
+    public int damage;//ì´ì˜ ë°ë¯¸ì§€
 
-    public int reloadBulletCount; // ÃÑ¾Ë ÀçÀåÀü °³¼ö
-    public int crrentBulletCount;//ÇöÀç Åº¾ËÁı¿¡ ³²¾ÆÀÖ´Â ÃÑ¾ËÀÇ °³¼ö
-    public int maxBulletCount;//ÃÖ´ë ¼ÒÀ¯ °¡´É ÃÑ¾Ë °³¼ö
-    public int carryBulletCount;//ÇöÀç ¼ÒÀ¯ÇÏ°í ÀÖ´Â ÃÑ¾Ë °³¼ö
-
+    public int reloadBulletCount; // ì´ì•Œ ì¬ì¥ì „ ê°œìˆ˜
+    public int crrentBulletCount;//í˜„ì¬ íƒ„ì•Œì§‘ì— ë‚¨ì•„ìˆëŠ” ì´ì•Œì˜ ê°œìˆ˜
+    public int maxBulletCount;//ìµœëŒ€ ì†Œìœ  ê°€ëŠ¥ ì´ì•Œ ê°œìˆ˜
+    public int carryBulletCount;//í˜„ì¬ ì†Œìœ í•˜ê³  ìˆëŠ” ì´ì•Œ ê°œìˆ˜
     
     
    
     public ParticleSystem muzzleFlash;
     public GameObject hitEffect;
-    public AudioClip fireSound;//ÃÑ¼Ò¸®
-    public AudioClip reloadSound;//ÀçÀåÀü¼Ò¸®
+    public AudioClip fireSound;//ì´ì†Œë¦¬
+    public AudioClip reloadSound;//ì¬ì¥ì „ì†Œë¦¬
 
-    public float hitTime;//ÃÑ¿¡¸Â°í ¸îÃÊÈÄ ÀÌÆåÆ®
-    public float hitEffectDuration;//ÈıÀÌÆåÆ® Áö¼Ó½Ã°£ 
+    public float hitTime;//ì´ì—ë§ê³  ëª‡ì´ˆí›„ ì´í™íŠ¸
+    public float hitEffectDuration;//í›ì´í™íŠ¸ ì§€ì†ì‹œê°„ 
 
     private void Awake()
     {
