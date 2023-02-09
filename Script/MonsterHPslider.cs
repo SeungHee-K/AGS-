@@ -21,4 +21,5 @@ public class MonsterHPslider : MonoBehaviour
     {
         slider.value = monster.monsterHP;
     }
+    
 }
