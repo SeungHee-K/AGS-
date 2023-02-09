@@ -18,8 +18,7 @@ public class Gun : MonoBehaviour
     public int crrentBulletCount;//현재 탄알집에 남아있는 총알의 개수
     public int maxBulletCount;//최대 소유 가능 총알 개수
     public int carryBulletCount;//현재 소유하고 있는 총알 개수
-    
-    
+        
    
     public ParticleSystem muzzleFlash;
     public GameObject hitEffect;
@@ -41,7 +40,4 @@ public class Gun : MonoBehaviour
 
 
     }
-
-
-
 }
