@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-// ÇÃ·¹ÀÌ¾î Á¤º¸
+// í”Œë ˆì´ì–´ ì •ë³´
 
 public class Player : MonoBehaviour
 {
@@ -26,8 +26,8 @@ public class Player : MonoBehaviour
     public int MaxHP = 0;
     public int ATTUp = 0;
 
-    public int GoldUp = 0; //°ñµå Èñµæ·® Áõ°¡/
-    public int ExpUp = 0;  //°æÇèÄ¡ Èñµæ·® Áõ°¡/
+    public int GoldUp = 0; //ê³¨ë“œ í¬ë“ëŸ‰ ì¦ê°€/
+    public int ExpUp = 0;  //ê²½í—˜ì¹˜ í¬ë“ëŸ‰ ì¦ê°€/
 
 
     void Start()
@@ -61,10 +61,7 @@ public class Player : MonoBehaviour
             ATK_text.text = "ATK " + ATK.ToString();
             DEF_text.text = "DEF " + DEF.ToString();
 
-        }
+        }                  
        
-                
-
-        
     }
 }
