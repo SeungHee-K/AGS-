@@ -10,8 +10,8 @@ public class StoreManager : MonoBehaviour
     public int RegenHP = 0;
     public int MaxHP = 0;
     public int ATTUp = 0;
-    public int GoldUp = 0; //°ñµå Èñµæ·® Áõ°¡/
-    public int ExpUp = 0;  //°æÇèÄ¡ Èñµæ·® Áõ°¡/
+    public int GoldUp = 0; //ê³¨ë“œ í¬ë“ëŸ‰ ì¦ê°€/
+    public int ExpUp = 0;  //ê²½í—˜ì¹˜ í¬ë“ëŸ‰ ì¦ê°€/
     public int PlusAmmo = 0;
 
     public bool missile=false;
@@ -23,7 +23,7 @@ public class StoreManager : MonoBehaviour
     public Text Mycoin;
 
     public int[] UP;
-    public void Load()//µ¥ÀÌÅÍ ºÒ·¯¿À±â
+    public void Load()//ë°ì´í„° ë¶ˆëŸ¬ì˜¤ê¸°
     {
         coin = Datamanager.instance.nowPlayer.coin;
         Weapons = Datamanager.instance.nowPlayer.Weapons;
@@ -94,7 +94,7 @@ public class StoreManager : MonoBehaviour
 
     public void Upgrade(int num)
     {
-        #region ±âº»´É·Â°­È­
+        #region ê¸°ë³¸ëŠ¥ë ¥ê°•í™”
         if (num == 0)
         {
             if (ATTUp < 5)
@@ -106,7 +106,7 @@ public class StoreManager : MonoBehaviour
                     BoxcheckUpdate(num, ATTUp);
                     Save();
                 }
-                else { print("ÀÜ¾×ºÎÁ·"); }
+                else { print("ì”ì•¡ë¶€ì¡±"); }
             }
         }
         else if (num == 1)
@@ -120,7 +120,7 @@ public class StoreManager : MonoBehaviour
                     BoxcheckUpdate(num, MaxHP);
                     Save();
                 }
-                else { print("ÀÜ¾×ºÎÁ·"); }
+                else { print("ì”ì•¡ë¶€ì¡±"); }
             }
         }
         else if (num == 2)
@@ -134,7 +134,7 @@ public class StoreManager : MonoBehaviour
                     BoxcheckUpdate(num, RegenHP);
                     Save();
                 }
-                else { print("ÀÜ¾×ºÎÁ·"); }
+                else { print("ì”ì•¡ë¶€ì¡±"); }
             }
         }
         else if (num == 3)
@@ -148,7 +148,7 @@ public class StoreManager : MonoBehaviour
                     BoxcheckUpdate(num, GoldUp);
                     Save();
                 }
-                else { print("ÀÜ¾×ºÎÁ·"); }
+                else { print("ì”ì•¡ë¶€ì¡±"); }
             }
         }
         else if (num == 4)
@@ -162,7 +162,7 @@ public class StoreManager : MonoBehaviour
                     BoxcheckUpdate(num, ExpUp);
                     Save();
                 }
-                else { print("ÀÜ¾×ºÎÁ·"); }
+                else { print("ì”ì•¡ë¶€ì¡±"); }
             }
         }
         else if (num == 5)
@@ -176,7 +176,7 @@ public class StoreManager : MonoBehaviour
                     BoxcheckUpdate(num, PlusAmmo);
                     Save();
                 }
-                else { print("ÀÜ¾×ºÎÁ·"); }
+                else { print("ì”ì•¡ë¶€ì¡±"); }
             }
         }
         #endregion
@@ -260,7 +260,7 @@ public class StoreManager : MonoBehaviour
             BoxcheckUpdate(i, UP[i]);
         }
 
-        //ÃÑ  Ã¼Å©
+        //ì´  ì²´í¬
         for (int i = 1; i < 4; i++)
         {
             if (Weapons[i])
@@ -287,4 +287,5 @@ public class StoreManager : MonoBehaviour
     {
         Save();
     }
+    
 }

@@ -76,13 +76,6 @@ public class GunController : MonoBehaviour
     {
         Attacking = false;
     }
-    //public void TryFire()
-    //{ //Input.GetButton("Fire1")
-    //    if (currentFireRate <= 0 && !isReload)
-    //    {
-    //        Fire();
-    //    }
-    //}
 
 
     private void Fire()
@@ -143,7 +136,7 @@ public class GunController : MonoBehaviour
             if (hitInfo.transform.tag == "Enemy")
             {
                 Invoke("HitEffect", gun.hitTime);
-                //¸ó½ºÅÍ ´ë¹ÌÁö
+                //Â¸Ã³Â½ÂºÃ…Ã Â´Ã«Â¹ÃŒÃÃ¶
                 Monster monster = hitInfo.transform.gameObject.GetComponent<Monster>();
                 monster.Damage(gun.damage, hitInfo.transform);
             }

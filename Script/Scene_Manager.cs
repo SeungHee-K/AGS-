@@ -3,29 +3,30 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+// ì”¬ ì „í™˜ ìŠ¤í¬ë¦½íŠ¸
+// ë¡œë¹„ - ê²Œì„ì‹œì‘ - ê²Œì„ì¢…ë£Œ
+
 public class Scene_Manager : MonoBehaviour
 {
+    // ìŠ¤í¬ë¦½íŠ¸
     GameManager gameManager;
-    public void GameStart() // °ÔÀÓ½ÃÀÛ
+    
+    public void GameStart() // ê²Œì„ì‹œì‘
     {        
         SceneManager.LoadScene("Main");
         Time.timeScale = 1;
         Datamanager.instance.nowPlayer.Gameclear = false;
         Datamanager.instance.SaveData();
-
     }
     
-    public void Lobby() // ·Îºñ·Î µ¹¾Æ°¡±â
+    public void Lobby() // ë¡œë¹„ë¡œ ëŒì•„ê°€ê¸°
     {
         SceneManager.LoadScene("Lobby");
         Time.timeScale = 1;
     }
 
-    public void GameExit() // °ÔÀÓÁ¾·á
+    public void GameExit() // ê²Œì„ì¢…ë£Œ
     {
         Application.Quit();
-
     }
-
-
 }

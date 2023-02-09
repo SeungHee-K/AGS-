@@ -3,42 +3,39 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-// UI °ü·Ã ½ºÅ©¸³Æ®
+// UI ê´€ë ¨ ìŠ¤í¬ë¦½íŠ¸
 
-// °ÔÀÓ ½ÃÀÛ Àü Ä«¿îÆ® ´Ù¿î
-// ÇÃ·¹ÀÌ¾î HP / EXP / COIN Ç¥±â
-// º¸Á¶¹«±â ½ºÅ³ Ä«¿îÆ®
-// ·¹º§¾÷ / º¸½ºµîÀå ÅØ½ºÆ®
-
+// ê²Œì„ ì‹œì‘ ì „ ì¹´ìš´íŠ¸ ë‹¤ìš´
+// í”Œë ˆì´ì–´ HP / EXP / COIN í‘œê¸°
+// ë³´ì¡°ë¬´ê¸° ìŠ¤í‚¬ ì¿¨íƒ€ì„ Slider
+// ë ˆë²¨ì—… / ë³´ìŠ¤ë“±ì¥ í…ìŠ¤íŠ¸
 
 public class UI_Manager : MonoBehaviour
 {
-    public GameObject CountDown; // °ÔÀÓ ½ÃÀÛ Ä«¿îÆ®´Ù¿î
-    public float Count = 6;
+    public GameObject CountDown; // ê²Œì„ ì‹œì‘ ì¹´ìš´íŠ¸ë‹¤ìš´
+    public float Count = 6; // 5ì´ˆë¶€í„° í‘œê¸°
 
     public Slider HP;
     public Slider EXP;
     public Text Coin;
-    public Text[] ScoreTime; // ÇÃ·¹ÀÌÅ¸ÀÓ ºĞ:ÃÊ
+    public Text[] ScoreTime; // í”Œë ˆì´íƒ€ì„ ë¶„:ì´ˆ
 
     public int MaxHP = 0;
     public int GoldUp = 0;
     public int ExpUp = 0;
 
-
-    public Slider Skil_1; // º¸Á¶¹«±â1 ÄğÅ¸ÀÓ
+    public Slider Skil_1; // ë³´ì¡°ë¬´ê¸°1 ì¿¨íƒ€ì„
     public float Skil_1_time;
-    public Slider Skil_2; // º¸Á¶¹«±â2 ÄğÅ¸ÀÓ
+    public Slider Skil_2; // ë³´ì¡°ë¬´ê¸°2 ì¿¨íƒ€ì„
     public float Skil_2_time;
 
-    public GameObject[] Panel; // ·¹º§¾÷, ½ºÅ×ÀÌÁöÅ¬¸®¾î, º¸½ºµîÀå ÆĞ³Î
-    public GameObject GameOver;// °ÔÀÓ¿À¹ö ÆĞ³Î
-    public GameObject Setting_Panel;
-
-    public MosterSpawner MosterSpawner;
-    public Text Enemy_Count;
+    public GameObject[] Panel; // ë ˆë²¨ì—…, ìŠ¤í…Œì´ì§€í´ë¦¬ì–´, ë³´ìŠ¤ë“±ì¥ íŒ¨ë„
+    public GameObject GameOver;// ê²Œì„ì˜¤ë²„ íŒ¨ë„
+    public GameObject Setting_Panel; // ì„¤ì •ì°½
+    
+    public Text Enemy_Count; // í˜„ì¬ ëª¬ìŠ¤í„° ìˆ˜
     public Text NowStage_text;
-    public float Dead_count; // Ã³Ä¡ ¼ö
+    public float Dead_count; // ì²˜ì¹˜ ìˆ˜
     public Text Dead_count_text;
     public Text Score;
 
@@ -46,14 +43,15 @@ public class UI_Manager : MonoBehaviour
     public Player player;
 
     public AudioSource audioSource;
-    public Slider Sound; // º¼·ıÁ¶Àı
+    public Slider Sound; // ë³¼ë¥¨ì¡°ì ˆ
 
-
-    // ½ºÅ©¸³Æ®
+    // ìŠ¤í¬ë¦½íŠ¸
     public GameManager gameManager;
     public Datamanager data;
+    public MosterSpawner MosterSpawner;
+    
 
-    private void Awake()
+    private void Awake() // ê²Œì„ ì‹œì‘ ì‹œ ì¹´ìš´íŠ¸ë‹¤ìš´íŒ¨ë„ ON
     {
         CountDown.SetActive(true);
     }
@@ -68,7 +66,6 @@ public class UI_Manager : MonoBehaviour
 
         Panel[2].SetActive(false);
         Panel[0].SetActive(false);
-
 
         Skil_1_time = 0;
         Skil_2_time = 0;
@@ -85,9 +82,9 @@ public class UI_Manager : MonoBehaviour
         Score.text = gameManager.BestScore.ToString();
         Dead_count_text.text = Dead_count.ToString();
 
-        // Ä«¿îÆ®´Ù¿î
+        // ì¹´ìš´íŠ¸ë‹¤ìš´
 
-        if (CountDown.activeSelf) // °ÔÀÓ ½ÃÀÛ Àü 5ÃÊ Ä«¿îÆ®
+        if (CountDown.activeSelf) // ê²Œì„ ì‹œì‘ ì „ 5ì´ˆ ì¹´ìš´íŠ¸
         {
             Count -= Time.deltaTime;
             CountDown.gameObject.GetComponent<Text>().text = ((int)Count).ToString();
@@ -96,16 +93,15 @@ public class UI_Manager : MonoBehaviour
         if (Count <= 0)
         {
             CountDown.SetActive(false);
-            Time_on(); // °ÔÀÓ ÇÃ·¹ÀÌÅ¸ÀÓ ½ÃÀÛ
+            Time_on(); // ê²Œì„ í”Œë ˆì´íƒ€ì„ ì‹œì‘
 
             //Debug.Log("Time : " + time.ToString());
         }
         
 
+        // í”Œë ˆì´ì–´ ìŠ¤íƒ¯
 
-        // ÇÃ·¹ÀÌ¾î ½ºÅÈ
-
-        if (player.HP <= 0) // HP = 0 °ÔÀÓ¿À¹ö + °ÔÀÓ ÀÏ½ÃÁ¤Áö
+        if (player.HP <= 0) // HP = 0 ê²Œì„ì˜¤ë²„ + ê²Œì„ ì¼ì‹œì •ì§€
         {
             GameOver.SetActive(true);
             data.nowPlayer.coin += player.Coin;
@@ -113,7 +109,7 @@ public class UI_Manager : MonoBehaviour
             Time.timeScale = 0; 
         }
 
-        if (player.EXP >= data.nowPlayer.MaxExp[player.Level]) // EXP = 100 ·¹º§¾÷, EXP ÃÊ±âÈ­
+        if (player.EXP >= data.nowPlayer.MaxExp[player.Level]) // EXP = 100 ë ˆë²¨ì—…, EXP ì´ˆê¸°í™”
         {
             Panel[0].SetActive(true);
             player.Level++;
@@ -126,17 +122,16 @@ public class UI_Manager : MonoBehaviour
             Invoke("Panel_x", 2f);
         }
 
-
         if (!GameManager.GameStart)
         {
             return;
         }
 
-        if (Setting_Panel.activeSelf || GameOver.activeSelf) // ¼³Á¤Ã¢ or °ÔÀÓ¿À¹ö ½Ã ÀÏ½ÃÁ¤Áö
+        if (Setting_Panel.activeSelf || GameOver.activeSelf) // ì„¤ì •ì°½ or ê²Œì„ì˜¤ë²„ ì‹œ ì¼ì‹œì •ì§€
         {
             Time.timeScale = 0;
 
-            if (Dead_count > gameManager.BestScore) // Ã³Ä¡ ¼ö > ±â·Ï = Best Score·Î µî·Ï
+            if (Dead_count > gameManager.BestScore) // ì²˜ì¹˜ ìˆ˜ > ê¸°ë¡ = Best Scoreë¡œ ë“±ë¡
             {
                 gameManager.BestScore = Dead_count;
             }            
@@ -146,8 +141,8 @@ public class UI_Manager : MonoBehaviour
         {
             Time.timeScale = 1;
         }
-
     }
+    
     public void StageClear()
     {
         if (gameManager.EnemyCount <= 0)
@@ -158,15 +153,14 @@ public class UI_Manager : MonoBehaviour
         }
     }
 
-    public void GameEnd()
+    public void GameEnd() // ê²Œì„
     {
         Panel[1].SetActive(true);
-
     }
 
     public void Sound_Volume(string volume)
     {
-        // ¼³Á¤ - ¼Ò¸®Å©±â Á¶Àı +- (¹öÆ° µ¿ÀÛ)
+        // ì„¤ì • - ì†Œë¦¬í¬ê¸° ì¡°ì ˆ +- (ë²„íŠ¼ ë™ì‘)
 
         if (volume == "up")
         {
@@ -181,7 +175,7 @@ public class UI_Manager : MonoBehaviour
         }
     }
 
-    private void Time_on() // °ÔÀÓ ÇÃ·¹ÀÌÅ¸ÀÓ
+    private void Time_on() // ê²Œì„ í”Œë ˆì´íƒ€ì„
     {
         GameManager.GameStart = true;
         time += Time.deltaTime;
@@ -189,7 +183,7 @@ public class UI_Manager : MonoBehaviour
         ScoreTime[1].text = ((int)time % 60).ToString();
     }
 
-    private void Panel_x() // ¸ğµç Panel ´İ±â
+    private void Panel_x() // ëª¨ë“  Panel ë‹«ê¸°
     {
         for (int i = 0; i < Panel.Length; i++)
         {
@@ -199,22 +193,17 @@ public class UI_Manager : MonoBehaviour
 
     public void SubSkil(int num)
     {
-        // º¸Á¶¹«±â ÄğÅ¸ÀÓ
+        // ë³´ì¡°ë¬´ê¸° ì¿¨íƒ€ì„
 
         if (num == 1 && Skil_1.value >= 10)
         {
-
-
             Skil_1_time = 0;
         }
         
         if (num == 2 && Skil_2.value >= 10)
         {
-
-
-            Skil_2_time = 0; // ½ºÅ³ »ç¿ë ÈÄ ÄğÅ¸ÀÓ ÃÊ±âÈ­
-        }
-        
+            Skil_2_time = 0; // ìŠ¤í‚¬ ì‚¬ìš© í›„ ì¿¨íƒ€ì„ ì´ˆê¸°í™”
+        }        
     }
 
     private void Upgrade()

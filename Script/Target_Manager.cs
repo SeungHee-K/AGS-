@@ -4,32 +4,25 @@ using UnityEngine;
 using UnityEngine.XR.ARFoundation;
 using UnityEngine.XR.ARSubsystems;
 
-// ¸ó½ºÅÍ Å¸°ÙÆÃ ÀÌ¹ÌÁö »ý¼º
+// ëª¬ìŠ¤í„° íƒ€ê²ŸíŒ… ì´ë¯¸ì§€ ìƒì„± => ì‚¬ìš© XXX
 
 public class Target_Manager : MonoBehaviour
 {
     public GameObject Indicator;
     ARRaycastManager ARraycast;
 
-
     void Start()
     {
         Indicator.SetActive(true);
 
         ARraycast = this.GetComponent<ARRaycastManager>();
-
     }
 
-    void Update()
-    {
-
-
-
-    }
+    void Update() {}
 
     private void Targeting()
     {
-        Vector2 screenSize = new Vector2(Screen.width * 0.5f, Screen.height * 0.5f); // È­¸é Á¤Áß¾Ó
+        Vector2 screenSize = new Vector2(Screen.width * 0.5f, Screen.height * 0.5f); // í™”ë©´ ì •ì¤‘ì•™
 
         List<ARRaycastHit> hits = new List<ARRaycastHit>();
 
@@ -45,9 +38,6 @@ public class Target_Manager : MonoBehaviour
         {
             Indicator.GetComponent<MeshRenderer>().material.color = Color.white;
         }
-
     }
-
-
 }
 
