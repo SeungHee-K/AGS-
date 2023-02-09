@@ -115,9 +115,7 @@ public class UI_Manager : MonoBehaviour
             player.Level++;
             EXP.maxValue = data.nowPlayer.MaxExp[player.Level];
             player.EXP = 0;
-            player.HP = HP.maxValue;
-
-                      
+            player.HP = HP.maxValue;                      
 
             Invoke("Panel_x", 2f);
         }
@@ -210,5 +208,4 @@ public class UI_Manager : MonoBehaviour
     {
         HP.maxValue = player.HP;
     }
-
 }
