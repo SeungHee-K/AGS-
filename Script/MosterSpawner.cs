@@ -67,6 +67,7 @@ public class MosterSpawner : MonoBehaviour
 
 
     }
+    
     private void Barretspawn(Transform player)
     {
         float RandomX = Random.Range(-12f, 12f);
@@ -148,7 +149,7 @@ public class MosterSpawner : MonoBehaviour
                 RandomZ = Random.Range(-15f ,- 12f);
             }
 
-            //º¸½º Æä³Î ¼­¼­È÷ ³ªÅ¸³ª°í ¼­¼­È÷ »ç¶óÁö°Ô °íÃÄ¾ßÇÔ
+            //ë³´ìŠ¤ í˜ë„ ì„œì„œíˆ ë‚˜íƒ€ë‚˜ê³  ì„œì„œíˆ ì‚¬ë¼ì§€ê²Œ ê³ ì³ì•¼í•¨
             for (int i = 0; i < 5; i++)
             {
                 yield return new WaitForSeconds(0.3f);
