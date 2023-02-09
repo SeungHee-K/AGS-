@@ -38,7 +38,6 @@ public class Target_Manager : MonoBehaviour
         {
             Indicator.GetComponent<MeshRenderer>().material.color = Color.white;
         }
-
     }
 }
 
