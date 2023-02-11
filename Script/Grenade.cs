@@ -58,5 +58,4 @@ public class Grenade : MonoBehaviour
             Destroy(this.gameObject);
         }
     }
-
 }
