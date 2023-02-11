@@ -10,7 +10,6 @@ public class GrenadeSpawner : MonoBehaviour
 
     public int coolTime = 10;
     public Slider Slider;
-
    
 
     private void Start()
