@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour
     public float BestScore;
     
 
-    // ��ũ��Ʈ
+    // 스크립트
     public UI_Manager ui_manager;
 
 
@@ -37,8 +37,11 @@ public class GameManager : MonoBehaviour
             ui_manager.GameEnd();
         }
 
+        Debug.Log("적 탐색");
+        
+        
 
-        Debug.Log("��Ž��");
+        // 몬스터 찾기 by.김승희
         //EnemyCount = Enemys.Count;
 
         //if (EnemyCount <= 0)
@@ -56,10 +59,6 @@ public class GameManager : MonoBehaviour
         //    }
         //}
             
-
-
-
-
     }
     
 
