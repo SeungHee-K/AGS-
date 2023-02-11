@@ -35,4 +35,5 @@ public class GrenadeSpawner : MonoBehaviour
         rb.AddForce(this.transform.forward* power,ForceMode.Impulse);
         Slider.value = coolTime;
     }
+    
 }
