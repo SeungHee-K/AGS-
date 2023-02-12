@@ -75,7 +75,7 @@ public class Monster : MonoBehaviour
                 BoxCollider monstercolider = this.GetComponent<BoxCollider>();
                 monstercolider.enabled = false;
                 UImanager.MosterSpawner.EnemyCount--;
-                gamemanager.Dead_monster++; // ���� óġ ��
+                gamemanager.Dead_monster++; // ¸ó½ºÅÍ Ã³Ä¡ ¼ö
 
                 Invoke("monsterDestroy", 2f);
                 if (Boss)
@@ -85,7 +85,6 @@ public class Monster : MonoBehaviour
             }
 
         }
-
     }
     public void RangeDamage(float DMG)
     {
