@@ -16,15 +16,15 @@ public class DataLoad : MonoBehaviour
 
     void Start()
     {
-            if (File.Exists(Datamanager.instance.path + $"0"))	// save0 µ¥ÀÌÅÍ°¡ ÀÖ´Â °æ¿ì
+            if (File.Exists(Datamanager.instance.path + $"0"))	// save0 ë°ì´í„°ê°€ ìˆëŠ” ê²½ìš°
             {
-                savefile = true;			// ÇØ´ç ½½·Ô ¹øÈ£ÀÇ bool¹è¿­ true·Î º¯È¯
-                Datamanager.instance.nowSlot = 0;	// ½½·Ô ¹øÈ£ ÀúÀå
-                Datamanager.instance.LoadData();	// ÇØ´ç ½½·Ô µ¥ÀÌÅÍ ºÒ·¯¿È
+                savefile = true;			// í•´ë‹¹ ìŠ¬ë¡¯ ë²ˆí˜¸ì˜ boolë°°ì—´ trueë¡œ ë³€í™˜
+                Datamanager.instance.nowSlot = 0;	// ìŠ¬ë¡¯ ë²ˆí˜¸ ì €ì¥
+                Datamanager.instance.LoadData();	// í•´ë‹¹ ìŠ¬ë¡¯ ë°ì´í„° ë¶ˆëŸ¬ì˜´
             }
-            else	// µ¥ÀÌÅÍ°¡ ¾ø´Â °æ¿ì
+            else	// ë°ì´í„°ê°€ ì—†ëŠ” ê²½ìš°
             {
-            Debug.Log("µ¥ÀÌÅÍ ¾øÀ½");
+            Debug.Log("ë°ì´í„° ì—†ìŒ");
 
             }
         Datamanager.instance.DataClear();
@@ -34,12 +34,12 @@ public class DataLoad : MonoBehaviour
     public void start()	
     {
         Datamanager.instance.nowSlot = 0;
-        if (savefile)	// bool ¹è¿­¿¡¼­ ÇöÀç true¶ó¸é = µ¥ÀÌÅÍ Á¸ÀçÇÑ´Ù´Â ¶æ
+        if (savefile)	// bool ë°°ì—´ì—ì„œ í˜„ì¬ trueë¼ë©´ = ë°ì´í„° ì¡´ì¬í•œë‹¤ëŠ” ëœ»
         {
-            Datamanager.instance.LoadData();	// µ¥ÀÌÅÍ¸¦ ·ÎµåÇÏ°í
+            Datamanager.instance.LoadData();	// ë°ì´í„°ë¥¼ ë¡œë“œí•˜ê³ 
             GoGame();	
         }
-        else	// bool ¹è¿­¿¡¼­ ÇöÀç false¶ó¸é µ¥ÀÌÅÍ°¡ ¾ø´Ù´Â ¶æ
+        else	// bool ë°°ì—´ì—ì„œ í˜„ì¬ falseë¼ë©´ ë°ì´í„°ê°€ ì—†ë‹¤ëŠ” ëœ»
         {
             GoGame();
         }
@@ -49,7 +49,7 @@ public class DataLoad : MonoBehaviour
     {
         Datamanager.instance.nowSlot = 0;	
 
-        if (savefile)	// bool ¹è¿­¿¡¼­ ÇöÀç true¶ó¸é = µ¥ÀÌÅÍ Á¸ÀçÇÑ´Ù´Â ¶æ
+        if (savefile)	// bool ë°°ì—´ì—ì„œ í˜„ì¬ trueë¼ë©´ = ë°ì´í„° ì¡´ì¬í•œë‹¤ëŠ” ëœ»
         {
             Datamanager.instance.deleteReady = true;
             Datamanager.instance.deletenum = 0;
@@ -57,11 +57,11 @@ public class DataLoad : MonoBehaviour
         }
         else
         {
-            Debug.Log("»èÁ¦ÇÒ µ¥ÀÌÅÍ°¡ ¾ø½À´Ï´Ù.");
+            Debug.Log("ì‚­ì œí•  ë°ì´í„°ê°€ ì—†ìŠµë‹ˆë‹¤.");
         }
     }
 
-    public void DeleteSaveFile()// µ¥ÀÌÅÍ »èÁ¦
+    public void DeleteSaveFile()// ë°ì´í„° ì‚­ì œ
     {
         Datamanager.instance.DeleteData();
         savefile = false;
@@ -69,21 +69,17 @@ public class DataLoad : MonoBehaviour
         start();
     }
 
-    public void GoGame()	// °ÔÀÓ¾ÀÀ¸·Î ÀÌµ¿
+    public void GoGame()	// ê²Œì„ì”¬ìœ¼ë¡œ ì´ë™
     {
         if (!savefile)
         {
-            Datamanager.instance.SaveData(); // ÇöÀç Á¤º¸¸¦ ÀúÀåÇÔ.
+            Datamanager.instance.SaveData(); // í˜„ì¬ ì •ë³´ë¥¼ ì €ì¥í•¨.
         }
         if (SceneManager.GetActiveScene().name=="Lobby")
         {
             storeManager.Load();
         }
         
-       // SceneManager.LoadScene(Datamanager.instance.nowPlayer.); // °ÔÀÓ¾ÀÀ¸·Î ÀÌµ¿
+       // SceneManager.LoadScene(Datamanager.instance.nowPlayer.); // ê²Œì„ì”¬ìœ¼ë¡œ ì´ë™
     }
-
-
-
-
 }
