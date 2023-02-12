@@ -10,15 +10,14 @@ public class PlayerData
     public int[] MaxExp = { 100, 200, 300, 500, 800, 1300, 2100, 3400 };
     public int coin = 0;
 
-
     public bool[] Weapons = new bool[4];
     public bool missile=false;
 
     public int RegenHP = 0;
     public int MaxHP = 0;
     public int ATTUp = 0;
-    public int GoldUp = 0; //°ñµå Èñµæ·® Áõ°¡/
-    public int ExpUp = 0;  //°æÇèÄ¡ Èñµæ·® Áõ°¡/
+    public int GoldUp = 0; //ê³¨ë“œ í¬ë“ëŸ‰ ì¦ê°€/
+    public int ExpUp = 0;  //ê²½í—˜ì¹˜ í¬ë“ëŸ‰ ì¦ê°€/
     public int PlusAmmo =0;
 
     public bool Gameclear = false;
@@ -29,7 +28,6 @@ public class Datamanager : MonoBehaviour
     public static Datamanager instance;
 
     public PlayerData nowPlayer = new PlayerData();
-
 
     public string path;
     public int nowSlot;
@@ -49,7 +47,7 @@ public class Datamanager : MonoBehaviour
         }
         DontDestroyOnLoad(this.gameObject);
 
-        path = Application.persistentDataPath + "/save"; //ÀúÀå °æ·Î
+        path = Application.persistentDataPath + "/save"; //ì €ì¥ ê²½ë¡œ
         print(path);
     }
 
@@ -75,6 +73,5 @@ public class Datamanager : MonoBehaviour
     {
         nowSlot = -1;
         nowPlayer = new PlayerData();
-
     }
 }
